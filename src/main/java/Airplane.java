@@ -4,7 +4,7 @@ public class Airplane {
 
     private Map<String, Integer> destination;
     private boolean isBusinessClass;
-    private Integer[][] seatMap;
+
     private double price, luggageAllowance, extraLuggageFeePerKilo;
 
     public Airplane() {
@@ -30,14 +30,6 @@ public class Airplane {
 
     public void setBusinessClass(boolean businessClass) {
         isBusinessClass = businessClass;
-    }
-
-    public Integer[][] getSeatMap() {
-        return seatMap;
-    }
-
-    public void setSeatMap(Integer[][] seatMap) {
-        this.seatMap = seatMap;
     }
 
     public double getPrice() {
