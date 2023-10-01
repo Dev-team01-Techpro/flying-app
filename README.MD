@@ -20,12 +20,12 @@ Metotlar:
 - `Getter-setter kullanilacak`
 
 ### AirplaneService
-- `bookSeat(row: int, column: int, isBusinessClass: boolean): boolean`: Belirli bir koltuğu rezerve etmeyi deneyen bir metot.
-- `displayMenu(): void`: Uçak menüsünü görüntüleyen metot.
-- `calculatePrice(age: int, luggageWeight: double): double`: Bilet fiyatını hesaplayan metot.
-- `getAvailableSeatsCount(): int`: Boş koltuk sayısını döndüren metot.
-- `calculateLuggageFee(luggageWeight: double): double`: Ekstra bagaj ücretini hesaplayan metot.
-- `getTotalPrice(age: int, luggageWeight: double): double`: Toplam bilet fiyatını hesaplayan metot.
+- Emrullah - `bookSeat(row: int, column: int, isBusinessClass: boolean): boolean`: Belirli bir koltuğu rezerve etmeyi deneyen bir metot.
+- Ertugrul - `displayMenu(): void`: Uçak menüsünü görüntüleyen metot.
+- Ümmü - `calculatePrice(age: int, luggageWeight: double): double`: Bilet fiyatını hesaplayan metot.
+- Sinan - `getAvailableSeatsCount(): int`: Boş koltuk sayısını döndüren metot.
+- Zeynep - `calculateLuggageFee(luggageWeight: double): double`: Ekstra bagaj ücretini hesaplayan metot.
+- Eda -`getTotalPrice(age: int, luggageWeight: double): double`: Toplam bilet fiyatını hesaplayan metot.
 
 ### Seat (Koltuk)
 Metotlar:
@@ -39,8 +39,8 @@ Metotlar:
 
 ### SeatService
 Metotlar:
-- `occupySeat(passengerName: String, age: int): boolean`: Koltuğu rezerve eden metot.
-- `isOccupied(): boolean`: Koltuğun dolu olup olmadığını kontrol eden metot.
+- Cahit - `occupySeat(passengerName: String, age: int): boolean`: Koltuğu rezerve eden metot.
+- Eda -`isOccupied(): boolean`: Koltuğun dolu olup olmadığını kontrol eden metot.
 
 ### Menu (Menü)
 
@@ -67,9 +67,9 @@ Metotlar:
 ### OrderService
 
 Metotlar:
-- `placeOrder(passengerName: String, flightNumber: String, isBusinessClass: boolean, age: int, luggageWeight: double): Order`: Yeni bir sipariş oluşturan metot.
+- Zeynep - `placeOrder(passengerName: String, flightNumber: String, isBusinessClass: boolean, age: int, luggageWeight: double): Order`: Yeni bir sipariş oluşturan metot.
 
 [//]: # (- `getTotalOrderCount&#40;&#41;: int`: Toplam sipariş sayısını döndüren metot.)
-- `getTotalRevenue(): double`: Toplam geliri döndüren metot.
+- Sinan - `getTotalRevenue(): double`: Toplam geliri döndüren metot.
 
 [//]: # (- `getAverageOrderPrice&#40;&#41;: double`: Ortalama sipariş fiyatını döndüren metot.)
