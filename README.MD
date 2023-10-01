@@ -18,7 +18,7 @@ Bu proje, bir uçak rezervasyon sistemi oluşturmayı amaçlayan bir Java uygula
 Metotlar:
 - `Airplane(flightNumber: String, destination: String, price: double, isBusinessClass: boolean)`: Airplane sınıfının kurucu metodu.
 - `Getter-setter kullanilacak`
-- 
+
 ### AirplaneService
 - `bookSeat(row: int, column: int, isBusinessClass: boolean): boolean`: Belirli bir koltuğu rezerve etmeyi deneyen bir metot.
 - `displayMenu(): void`: Uçak menüsünü görüntüleyen metot.
