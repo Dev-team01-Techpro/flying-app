@@ -1,35 +1,29 @@
-import java.util.Map;
+import java.util.*;
 
 public class Airplane {
 
-    private Map<String, Integer> destination;
-    private boolean isBusinessClass;
+    //    private Map<String, Integer> destination;
+//    private String[][] destination = {{"Germany", "15000"},{"Nederland", "15000"}};
+    private Map<String, Integer> destinations;
+
 
     private double price, luggageAllowance, extraLuggageFeePerKilo;
 
     public Airplane() {
+        defaultCountries();
     }
-    public Airplane(Map<String, Integer> destination, boolean isBusinessClass, double price, double luggageAllowance) {
-        this.destination = destination;
-        this.isBusinessClass = isBusinessClass;
+    public Airplane(double price, double luggageAllowance) {
+        defaultCountries();
         this.price = price;
         this.luggageAllowance = luggageAllowance;
     }
 
-    public Map<String, Integer> getDestination() {
-        return destination;
+    public Map<String, Integer> getDestinations() {
+        return destinations;
     }
 
-    public void setDestination(Map<String, Integer> destination) {
-        this.destination = destination;
-    }
-
-    public boolean isBusinessClass() {
-        return isBusinessClass;
-    }
-
-    public void setBusinessClass(boolean businessClass) {
-        isBusinessClass = businessClass;
+    public void setDestinations(Map<String, Integer> destinations) {
+        this.destinations = destinations;
     }
 
     public double getPrice() {
@@ -54,5 +48,21 @@ public class Airplane {
 
     public void setExtraLuggageFeePerKilo(double extraLuggageFeePerKilo) {
         this.extraLuggageFeePerKilo = extraLuggageFeePerKilo;
+    }
+    public void defaultCountries(){
+        this.destinations = new HashMap<>();
+
+        this.destinations.put("Germany", 1500);
+        this.destinations.put("Nederland", 4500);
+        this.destinations.put("Poland", 3500);
+        this.destinations.put("Norway", 2500);
+    }
+    public void run(){
+        Airplane airplane = new Airplane();
+        for(Map.Entry<String, Integer> w : airplane.getDestinations().entrySet()){
+            String country = w.getKey();
+            Integer km = w.getValue();
+            System.out.println(country + " " + km);
+        }
     }
 }

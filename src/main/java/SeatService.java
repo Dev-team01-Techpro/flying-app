@@ -5,67 +5,70 @@ public class SeatService {
     public HashSet<Integer> economySeatMap;
     public HashSet<Integer> businesSeatMap;
     private boolean isOccupied;
+    private Seat[][] seatMap;
 
 
-
-    SeatService (){
-  businesSeatMap =new HashSet<>();
-  economySeatMap=new HashSet<>();
-
-        for (int i = 1; i <=10 ; i++) {
-
-            this.businesSeatMap.add(i);
-        }
-
-        for (int i = 11; i <=32 ; i++) {
-
-            this.economySeatMap.add(i);
+    public SeatService(int row, int col) {
+        this.seatMap = new Seat[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                seatMap[i][j] = new Seat();
+            }
         }
     }
 
-
-public boolean isOccupied(int seatNo){
-
-    if (seatNo<0&&seatNo>=32){
-        System.out.println("Koltuk numarasi 0 dan kucuk 32 den buyuk olamaz.");
-        return false;
+    public Seat[][] getSeatMap() {
+        return seatMap;
     }
 
-    for (Integer w:this.economySeatMap) {
-        if (w==seatNo){
-            return true;
+    public Seat getSeatByNumber(int row, int col) {
+        if (row >= 0 && row < seatMap.length && col >= 0 && col < seatMap[0].length) {
+            return seatMap[row][col];
+        }
+        return null;
+    }
+
+    public void bookSeat(int row, int col, String passenggerName, int age) {
+        // TODO: YANLIS GIRILEN KOLTUK NUMARASINA HATA DONDUR
+        Seat seat = getSeatByNumber(row, col);
+        int halfRow = this.seatMap.length / 2;
+        boolean checkBusiness = row < halfRow;
+
+        if (seat != null && !seat.isOccupied()) {
+            seat.setOccupied(true);
+            seat.setPassengerName(passenggerName);
+            seat.setAge(age);
+            seat.setBusinessClass(checkBusiness);
+            System.out.println("Koltuk rezerve edildi");
+        } else {
+            System.out.println("Koltuk gecersiz yada dolu");
         }
     }
 
-
-    for (Integer w:this.businesSeatMap) {
-        if (w==seatNo){
-            return true;
+    public void seatCheck(int row, int col) {
+        Seat seat = seatMap[row][col];
+        if (seat != null) {
+            if (seat.isOccupied()) {
+                System.out.println("Koltuk Dolu : " + seat.getPassengerName() + " Yas " + seat.getAge());
+            } else {
+                System.out.println("Koltuk Bos");
+            }
+        } else {
+            System.out.println("Geçersiz koltuk numarası.");
         }
     }
 
-    return false;
-}
-
-
-
-   public void occupySeat(Seat seat,int no){
-
-
-
-        if (isOccupied(no)){
-
-          if (no>10){
-              this.economySeatMap.remove(no);
-          }else {
-              this.businesSeatMap.remove(no);
-          }
-          seat.setSitNo(no);
-          System.out.println(no+"numarali koltugunuz rezerve edilmistir.");
-
-      } else System.out.println("Sectiginiz koltuk baskasi tarafindan rezerve edilmis.");
-   }
-
-
+    public void seatList() {
+        Seat[][] seatMap = getSeatMap();
+        for (int i = 0; i < seatMap.length; i++) {
+            for (int j = 0; j < seatMap[i].length; j++) {
+                Seat seat = seatMap[i][j];
+                String status = seat.isOccupied() ? "Dolu" : "Bos";
+                String businessCheck = seat.isBusinessClass() ? " Business Class " : " Economy Class ";
+                String pessenger = seat.getPassengerName() != null ? " Yolcu adi : " + seat.getPassengerName() + businessCheck : "";
+                System.out.println("Koltuk " + (i + 1) + "-" + (char) ('A' + j) + " = " + status + pessenger);
+            }
+        }
+    }
 
 }

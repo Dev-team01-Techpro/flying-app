@@ -1,30 +1,37 @@
-import java.util.Arrays;
 
 public class Seat {
 
-
-   private  int age;
-   private  String passengerName;
-    private int sitNo;
+    private int age;
+    private String passengerName;
+    private Integer[][] seatMap;
+    private boolean isOccupied, isBusinessClass;
 
     public Seat() {
     }
 
-
-    public Seat(int age, String passengerName, int sitNo) {
+    public Seat(int age, String passengerName, Integer[][] seatMap, boolean isOccupied) {
+        this.isOccupied = isOccupied;
         this.age = age;
         this.passengerName = passengerName;
-        this.sitNo = sitNo;
+        this.seatMap = seatMap;
+        this.isBusinessClass = isBusinessClass;
     }
 
-    public int getSitNo() {
-        return sitNo;
+    public boolean isBusinessClass() {
+        return isBusinessClass;
     }
 
-    public void setSitNo(int sitNo) {
-        this.sitNo = sitNo;
+    public void setBusinessClass(boolean businessClass) {
+        isBusinessClass = businessClass;
     }
 
+    public void setOccupied(boolean occupied) {
+        isOccupied = occupied;
+    }
+
+    public boolean isOccupied() {
+        return isOccupied;
+    }
 
     public int getAge() {
         return age;
