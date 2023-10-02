@@ -2,28 +2,29 @@ import java.util.Arrays;
 
 public class Seat {
 
-   private boolean isOccupied;
+
    private  int age;
    private  String passengerName;
-    private Integer[][] seatMap;
+    private int sitNo;
 
     public Seat() {
     }
 
-    public Seat(boolean isOccupied, int age, String passengerName, Integer[][] seatMap) {
-        this.isOccupied = isOccupied;
+
+    public Seat(int age, String passengerName, int sitNo) {
         this.age = age;
         this.passengerName = passengerName;
-        this.seatMap = seatMap;
+        this.sitNo = sitNo;
     }
 
-    public boolean isOccupied() {
-        return isOccupied;
+    public int getSitNo() {
+        return sitNo;
     }
 
-    public void setOccupied(boolean occupied) {
-        isOccupied = occupied;
+    public void setSitNo(int sitNo) {
+        this.sitNo = sitNo;
     }
+
 
     public int getAge() {
         return age;
