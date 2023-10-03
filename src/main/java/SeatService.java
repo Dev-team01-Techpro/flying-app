@@ -1,12 +1,7 @@
 import java.util.HashSet;
 
 public class SeatService {
-
-    public HashSet<Integer> economySeatMap;
-    public HashSet<Integer> businesSeatMap;
-    private boolean isOccupied;
     private Seat[][] seatMap;
-
 
     public SeatService(int row, int col) {
         this.seatMap = new Seat[row][col];
