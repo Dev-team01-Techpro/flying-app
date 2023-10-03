@@ -10,14 +10,13 @@ public class AirplaneService {
 
         do {
             System.out.println("Ucak Rezervasyon Sistemine Hosgeldiniz");
-            System.out.println("""
-                    1. Koltuk Durumunu Göster
-                    2. Koltuk Rezerve Et
-                    3. Rezervasyonları Göster
-                    4.Rezervasyon İptal Et
-                    0. Çıkış
-                    Bir seçenek girin:
-                     """);
+            System.out.println("1. Koltuk Durumunu Göster");
+            System.out.println("2. Koltuk Rezerve Et");
+            System.out.println("3. Rezervasyonları Göster");
+            System.out.println("4.Rezervasyon İptal Et");
+            System.out.println("0. Çıkış");
+            System.out.println("Bir seçenek girin:");
+
 
             secim = inp.nextInt();
 
@@ -87,8 +86,34 @@ public class AirplaneService {
 
     public static void main(String[] args) {
         System.out.println(calculatePrice(25, true));
+        System.out.println(calculateLuggageFee(40,false));
 
     }
 
+    /* Valiz hakki: Ekonomi icin 15 kiloya kadar ucretsiz business icin 30 kilo. Bunu asarsa ek ucret olacak.
+    Kilo basi ekonomi icin 20 business icin 10
+    Baslangic noktasi Istanbul. Bununla birlikte 5 ulke secilir.
+    Istanbuldan gidilecek ulkeye gore fiyat secenegi olur.
+    Business fiyati 50% daha pahali.
+            3 yas ve asagisi ucretsiz.
+            3 ile 7 arasi 50% indirimli.
+    Enum kullanilacak.
+    OOP kullanilacak.*/
+
+    public static double calculateLuggageFee(double luggageWeight, boolean isBusinessClass){
+        double sum =0;
+        if (isBusinessClass){
+            if (luggageWeight>30){
+                sum = sum + (luggageWeight-30)*10;
+            }
+
+        }else {
+            if (luggageWeight>15){
+                sum = sum + (luggageWeight-15)*20;
+            }
+        }
+        return sum ;
+
+    }
 
 }
