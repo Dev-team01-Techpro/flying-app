@@ -27,6 +27,7 @@ public class SeatService {
 
     public void bookSeat(int row, int col, String passenggerName, int age) {
         // TODO: YANLIS GIRILEN KOLTUK NUMARASINA HATA DONDUR
+        System.out.println("passenggerName = " + passenggerName);
         Seat seat = getSeatByNumber(row, col);
         int halfRow = this.seatMap.length / 2;
         boolean checkBusiness = row < halfRow;

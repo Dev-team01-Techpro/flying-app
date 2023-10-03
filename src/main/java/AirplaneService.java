@@ -1,15 +1,17 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class AirplaneService {
 
     void displayMenu() {
-        SeatService seatService = new SeatService(4, 2);
+        int row = 4, col = 2;
+        SeatService seatService = new SeatService(row, col);
+        String seatNumber;
+
         Scanner inp = new Scanner(System.in);
-        int secim;
-        int row;
-        int col;
+        int secim, seatNumberInt, seatRow, seatLetterInt;
 
         do {
             System.out.println("Ucak Rezervasyon Sistemine Hosgeldiniz");
@@ -28,24 +30,25 @@ public class AirplaneService {
                     break;
                 case 2:
                     System.out.println("Koltuk rezervasyonu yapma işlemi ");
-                    System.out.println("Row ");
-                    row = inp.nextInt();
-                    System.out.println("Col ");
-                    col = inp.nextInt();
-                    inp.nextLine();
                     System.out.println("Isim Soyisim ");
-                    String passengerName = inp.nextLine();
+                    String passengerName = inp.next();
+                    System.out.println("Koltuk numarası giriniz : ");
+                    seatNumber = inp.next();
+                    seatNumberInt = seatNumberConverter(seatNumber, col);
+                    seatRow = (seatNumberInt / col) - 1;
+                    seatLetterInt = seatNumberInt % col;
                     System.out.println("Yas ");
                     int age = inp.nextInt();
-                    seatService.bookSeat(row, col, passengerName, age);
+                    seatService.bookSeat(seatRow, seatLetterInt, passengerName, age);
                     break;
                 case 3:
                     System.out.println("Rezervasyonlari goster ");
-                    System.out.println("Row ");
-                    row = inp.nextInt();
-                    System.out.println("Col ");
-                    col = inp.nextInt();
-                    seatService.seatCheck(row, col);
+                    System.out.println("Koltuk numarası giriniz : ");
+                    seatNumber = inp.next();
+                    seatNumberInt = seatNumberConverter(seatNumber, col);
+                    seatRow = (seatNumberInt / col) - 1;
+                    seatLetterInt = seatNumberInt % col;
+                    seatService.seatCheck(seatRow, seatLetterInt);
                     break;
                 case 0:
                     System.out.println("Programdan çıkıs ");
@@ -53,20 +56,19 @@ public class AirplaneService {
                 default:
                     System.out.println("Geçersiz seçenek. Lütfen tekrar deneyiniz.");
             }
-        } while (secim != 4);
-
+        } while (secim != 0);
+        inp.close();
     }
 
+    static int seatNumberConverter(String num, int col) {
+        num = num.toUpperCase(); // Girilen koltuk numarasını büyük harfe dönüştürün.
+        char seatLetter = num.charAt(num.length() - 1); // Son harfi alın
+        String seatNumber = num.substring(0, num.length() - 1); // Sayıyı alın
 
-   /* Valiz hakki: Ekonomi icin 15 kiloya kadar ucretsiz business icin 30 kilo. Bunu asarsa ek ucret olacak.
-    Kilo basi ekonomi icin 20 business icin 10
-    Baslangic noktasi Istanbul. Bununla birlikte 5 ulke secilir.
-    Istanbuldan gidilecek ulkeye gore fiyat secenegi olur.
-    Business fiyati 50% daha pahali.
-            3 yas ve asagisi ucretsiz.
-            3 ile 7 arasi 50% indirimli.
-    Enum kullanilacak.
-    OOP kullanilacak.*/
+        int letterToNumber = seatLetter - 'A'; // Harfi sayıya dönüştürün
+
+        return Integer.parseInt(seatNumber) * col + letterToNumber;
+    }
 
     static double calculatePrice(int age, boolean isBusinessClass) {
 
