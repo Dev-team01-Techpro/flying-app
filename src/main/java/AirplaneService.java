@@ -85,8 +85,9 @@ public class AirplaneService {
     }
 
     public static void main(String[] args) {
-        System.out.println(calculatePrice(25, true));
-        System.out.println(calculateLuggageFee(40,false));
+        System.out.println(calculatePrice(20, true));
+        System.out.println(calculateLuggageFee(35,true));
+        System.out.println(getTotalPrice(20, true, 35));
 
     }
 
@@ -115,5 +116,18 @@ public class AirplaneService {
         return sum ;
 
     }
+
+    static double getTotalPrice(int age, boolean isBusinessClass ,  double luggageWeight){
+
+
+        double luggageFee = calculateLuggageFee(luggageWeight,isBusinessClass);
+        double ticketPrice = calculatePrice( age, isBusinessClass);
+
+         return luggageFee + ticketPrice;
+
+
+    }
+
+
 
 }
