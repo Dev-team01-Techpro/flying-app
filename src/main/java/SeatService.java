@@ -3,6 +3,8 @@ import java.util.HashSet;
 public class SeatService {
     private Seat[][] seatMap;
 
+    public SeatService() {
+    }
     public SeatService(int row, int col) {
         this.seatMap = new Seat[row][col];
         for (int i = 0; i < row; i++) {

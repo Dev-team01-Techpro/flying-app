@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04b576cd-1bb9-4fa4-94b4-ff25cb744987" name="Changes" comment="merhaba">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AirplaneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AirplaneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SeatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeatService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +47,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/bulut/IdeaProjects/flying-app1&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.AirplaneService">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="AirplaneService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AirplaneService" />
       <module name="flying-app" />
@@ -62,8 +64,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AirplaneService" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AirplaneService" />
       </list>
     </recent_temporary>
   </component>
